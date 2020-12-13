@@ -87,7 +87,9 @@ module.exports = function (config) {
       bilaxy: [
         'Bilaxy',
         'https://newapi.bilaxy.com/v1/valuation/?currency=SHIFT',
-        (res, cb) => ((!res.SHIFT) ? cb(res.error) : cb(null, res.SHIFT.btc_value)),
+        (res, cb) => {
+          return (!res.SHIFT) ? cb(res.error) : cb(null, res.SHIFT.btc_value);
+        },
       ],
     },
     // LSKCNY: {
