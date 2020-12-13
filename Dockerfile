@@ -1,4 +1,4 @@
-FROM node:10 AS builder
+FROM node:10.13 AS builder
 LABEL description="Shift Explorer Docker Image" version="1.5.0"
 
 ARG DEBIAN_FRONTEND=noninteractive
