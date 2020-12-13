@@ -20,7 +20,6 @@ AppHeader.directive('mainHeader', ($socket, $rootScope, Header) => {
       return false;
     };
 
-
     const header = new Header($rootScope);
     const ns = $socket('/header');
 
@@ -32,7 +31,6 @@ AppHeader.directive('mainHeader', ($socket, $rootScope, Header) => {
     ns.on('delegateProposals', (res) => {
       if (res) { header.updateDelegateProposals(res); }
     });
-
 
     $rootScope.$on('$destroy', () => {
       ns.removeAllListeners();
