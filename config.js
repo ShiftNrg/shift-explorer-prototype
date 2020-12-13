@@ -46,8 +46,8 @@ config.exchangeRates.enabled = true;
 config.exchangeRates.updateInterval = 30000;
 
 // Configuration for different currency pairs, set false to disable pair
-// LSK/BTC pair, supported: poloniex, bittrex
-config.exchangeRates.exchanges.SHIFT.BTC = 'livecoin';
+// LSK/BTC pair, supported: poloniex, bittrex, livecoin, bilaxy
+config.exchangeRates.exchanges.SHIFT.BTC = 'bilaxy';
 // LSK/CNY pair, supported: jubi, bitbays
 // config.exchangeRates.exchanges.LSK.CNY = 'jubi';
 // BTC/USD pair, supported: bitfinex, bitstamp, btce

@@ -77,11 +77,20 @@ module.exports = function (config) {
       //         return (!res.success || !res.result.Last) ? cb(res.error) : cb(null, res.result.Last);
       //     }
       // ],
-      livecoin: [
-        'Livecoin',
-        'https://api.livecoin.net/exchange/ticker?currencyPair=SHIFT/BTC',
-        (res, cb) => ((!res.last) ? cb(res.error) : cb(null, res.last)),
-      ],
+      // livecoin : [
+            //     'Livecoin',
+            //     'https://api.livecoin.net/exchange/ticker?currencyPair=SHIFT/BTC',
+            //     (res, cb) => {
+            //         return (!res.last) ? cb(res.error) : cb(null, res.last);
+            //     }
+            // ]
+			bilaxy : [
+			    'Bilaxy',
+			    'https://newapi.bilaxy.com/v1/valuation/?currency=SHIFT',
+			    (res, cb) => {
+			        return (!res.SHIFT) ? cb(res.error) : cb(null, res.SHIFT.btc_value);
+			    }
+			],
     },
     // LSKCNY: {
     // 	jubi: [
