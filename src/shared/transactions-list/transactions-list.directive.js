@@ -1,4 +1,3 @@
-
 import AppTools from '../../app/app-tools.module';
 import template from './transactions-list.html';
 
