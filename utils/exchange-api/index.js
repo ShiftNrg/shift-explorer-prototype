@@ -164,7 +164,7 @@ module.exports = function (config) {
   return {
     getPriceTicker: (cb) => {
       const currency = {};
-      const isNumeric = (n) => !Number.isNaN(parseFloat(n)) && Number.isFinite(n);
+      const isNumeric = (n) => !Number.isNaN(n) && !Number.isNaN(parseFloat(n));
 
       async.forEachOf(config.exchangeRates.exchanges, (exchange, key1, seriesCb) => {
         currency[key1] = {};
@@ -173,6 +173,7 @@ module.exports = function (config) {
             if (result && isNumeric(result)) {
               currency[key1][key2] = result;
             } else {
+              // logger.info(util.format('Exchange result: %s', result));
               logger.error(util.format('Cannot receive exchange rates for %s/%s pair from [%s], ignored', key1, key2, exchange2[0]));
             }
             seriesCb2(null, currency);
@@ -183,7 +184,7 @@ module.exports = function (config) {
         });
       },
       () => {
-        logger.error('Exchange rates:', currency);
+        // logger.info('Exchange rates:', currency);
         cb(null, currency);
       });
     },
