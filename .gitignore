@@ -6,3 +6,4 @@ dump.rdb
 sftp-config.json
 blockchain_explorer.db.gz
 .secrets
+logs/explorer.log
